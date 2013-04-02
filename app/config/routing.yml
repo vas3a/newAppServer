@@ -1,0 +1,3 @@
+wimp_app:
+    resource: "@WimpAppBundle/Resources/config/routing.yml"
+    prefix:   /

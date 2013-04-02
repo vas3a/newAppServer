@@ -1,0 +1,7 @@
+parameters:
+#    wimp_app.example.class: Wimp\AppBundle\Example
+
+services:
+#    wimp_app.example:
+#        class: %wimp_app.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

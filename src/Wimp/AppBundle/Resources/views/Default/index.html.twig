@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- html5 video player + flash fallback -->
+  <!-- <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/c/video.js"></script> -->
+
+  <link rel="stylesheet" href="{{ asset('bundles/wimpapp/css/style.css') }}" type="text/css" charset="utf-8">
+  <script src="{{ asset('bundles/wimpapp/js/app.js') }}" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var videos = '{{ videos|raw }}';
+    var jQuery  = require("jqueryify");
+    var exports = this;
+    jQuery(function(){
+      var App = require("index");
+      exports.app = new App({el: $(".body-content-wraper")});      
+      var videosModel = require('models/video')
+      videosModel.refresh(videos);
+    });
+  </script>
+   
+  <!-- flowplayer.js -->
+  <script src="{{ asset('bundles/wimpapp/player/flowplayer.min.js') }}"></script>
+  <!-- player styling -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/wimpapp/player/skin/minimalist.css') }}">
+</head>
+<body>
+<div class="body-content-wraper"></div>
+<script>
+// (function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+//   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=251460988261508";
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+</html>
