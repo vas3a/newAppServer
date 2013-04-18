@@ -324,7 +324,7 @@ ul.video-list .video-title .sub-title {
 .scrollbar {
   position: relative;
   float: right;
-  width: 3px;
+  width: 5px;
   z-index: 99;
   border: 1px solid #393939;
   border-right: 0 none;
@@ -334,25 +334,25 @@ ul.video-list .video-title .sub-title {
 .track {
   background-color: #d8eefd;
   height: 100%;
-  width: 3px;
+  width: 5px;
   position: relative;
   padding: 0;
 }
 .thumb {
   height: 20px;
-  width: 3px;
+  width: 5px;
   cursor: pointer;
   overflow: hidden;
   position: absolute;
   top: 0;
-  -webkit-transition: top 0.2s ease;
-  -moz-transition: top 0.2s ease;
-  transition: top 0.2s ease;
+  -webkit-transition: top 0.1s ease;
+  -moz-transition: top 0.1s ease;
+  transition: top 0.1s ease;
 }
 .thumb .end {
   overflow: hidden;
   height: 5px;
-  width: 3px;
+  width: 5px;
 }
 .disabl {
   display: none;

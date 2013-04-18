@@ -6,3 +6,4 @@
 /vendor/
 /bin/
 /composer.phar
+/src/Wimp/AppBundle/Resources/public/videos/
