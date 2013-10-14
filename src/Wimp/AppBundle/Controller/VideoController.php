@@ -16,6 +16,7 @@ class VideoController extends Controller
 		// $this->generateRows();die;
 		$vr = $this->getDoctrine()->getRepository('WimpAppBundle:VideoModel');
 		$videos = $vr->loadFirstVideos();
+		print_r(array_map(function($item){return $item->getTitle().'; ';}, $videos));die('end');
 		return $this->videoPage($videos);
 	}
 
@@ -52,11 +53,15 @@ class VideoController extends Controller
 	}
 
 	public function searchVideosAction($searchWord)
-	{
-		$searchWord = str_replace(' ', '%', urldecode($searchWord));
+	{	
 		$vr = $this->getDoctrine()->getRepository('WimpAppBundle:VideoModel');
-		$videos = $vr->getVideosBySearchWord($searchWord);
-
+		
+		if(strpos($searchWord, 'v-id-') === 0){
+			$videos = $vr->getVideosForId(str_replace('v-id-', '', $searchWord));
+		}else{		
+			$searchWord = str_replace(' ', '%', urldecode($searchWord));
+			$videos = $vr->getVideosBySearchWord($searchWord);
+		}
 		return $this->doJSONResponse($videos);
 	}
 

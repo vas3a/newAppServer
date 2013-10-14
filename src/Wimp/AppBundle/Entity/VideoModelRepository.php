@@ -42,6 +42,19 @@ class VideoModelRepository extends EntityRepository
 		return $videos;
 	}
 
+	public function getVideosForId($id)
+	{
+		$q = '
+			SELECT v
+			FROM WimpAppBundle:VideoModel v
+			WHERE v.id >= ?0
+			ORDER BY v.id ASC
+		';
+		$id = max(intval($id) - 16, 1);
+		$videos = $this->executeQuery( $q, array($id), 30 );
+		return $videos;
+	}
+
 	public function getNextVideos($id = 0, $reverse)
 	{
 		$q = '
